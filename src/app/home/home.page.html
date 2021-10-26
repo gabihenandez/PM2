@@ -1,0 +1,35 @@
+<ion-content style="text-align:center !important;">
+  <ion-card>
+    <ion-avatar >
+      <img src="https://png.pngtree.com/png-vector/20190321/ourmid/pngtree-vector-users-icon-png-image_856952.jpg">
+    </ion-avatar>
+    <form class="example-form" #formUser="ngForm" color = "primary">
+      
+      <ion-row>
+        <ion-col>
+          
+           <mat-form-field class="example-full-width" >
+            <mat-label>Usuario</mat-label>
+            <input type="text" #usuarioCount matInput name="usuario" [(ngModel)]="user.usuario" placeholder="User" (keyup)="onKeyUp($event)"
+            onkeypress="if(this.value.length>=8 && this.value.length<=30) return false;"
+            required>
+            <mat-hint aling="end"> {{usuarioCount.value.lenght}} / 10 </mat-hint> 
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" matInput name="password" [(ngModel)]="user.password" required>
+          </mat-form-field>
+          <br>
+          <br>
+          <ion-button (click)="onSubmit(formUser)" color="tertiary">
+            Submit 
+          </ion-button>
+          <br>
+          <ion-button routerLink="/register" color="tertiary" >Register</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card> 
+</ion-content>
